@@ -182,3 +182,86 @@ public int[] plusTwo(int[] a, int[] b) {
   int[] combined = {a[0], a[1], b[0], b[1]};
   return combined;
 }
+
+// Given an array of ints, swap the first and last elements in the array. Return the modified array. The array length will be at least 1.
+
+public int[] swapEnds(int[] nums) {
+  int firstNum = nums[0];
+  int lastNum = nums[nums.length - 1];
+  nums[0] = lastNum;
+  nums[nums.length - 1] = firstNum;
+  return nums;
+}
+
+// Given an array of ints of odd length, return a new array length 3 containing the elements from the middle of the array. The array length will be at least 3.
+
+public int[] midThree(int[] nums) {
+  int mid = nums.length / 2 - 1;
+  int [] newNums = {nums[mid], nums[mid + 1], nums[mid + 2]};
+  
+  return newNums;
+}
+
+// Given an array of ints of odd length, look at the first, last, and middle values in the array and return the largest. The array length will be a least 1.
+
+public int maxTriple(int[] nums) {
+  if (nums.length == 1) {
+    return nums[0];
+  }
+  return Math.max(Math.max(nums[0], nums[nums.length / 2]),  nums[nums.length - 1]);
+}
+
+// Given an int array of any length, return a new array of its first 2 elements. If the array is smaller than length 2, use whatever elements are present.
+
+public int[] frontPiece(int[] nums) {
+  if (nums.length <= 2) {
+    return nums;
+  }
+  int [] newArr = {nums[0], nums[1]};
+  return newArr;
+}
+
+// We'll say that a 1 immediately followed by a 3 in an array is an "unlucky" 1. Return true if the given array contains an unlucky 1 in the first 2 or last 2 positions in the array.
+
+public boolean unlucky1(int[] nums) {
+  if (nums.length < 2) {
+    return false;
+  }
+  return (nums[0] == 1 && nums[1] == 3) || (nums[1] == 1 && nums[2] == 3) || (nums[nums.length - 2] == 1 && nums[nums.length - 1] == 3);
+}
+
+// Given 2 int arrays, a and b, return a new array length 2 containing, as much as will fit, the elements from a followed by the elements from b. The arrays may be any length, including 0, but there will be 2 or more elements available between the 2 arrays.
+
+public int[] make2(int[] a, int[] b) {
+  if (a.length >= 2) {
+    int [] ans = {a[0], a[1]};
+    return ans;
+  }
+  else if (a.length == 1) {
+    int [] ans = {a[0], b[0]};
+    return ans;
+  }
+  else {
+    int [] ans = {b[0], b[1]}; 
+    return ans;
+  }
+}
+
+// Given 2 int arrays, a and b, of any length, return a new array with the first element of each array. If either array is length 0, ignore that array.
+
+public int[] front11(int[] a, int[] b) {
+  if (a.length > 0 && b.length > 0) {
+    int [] ans = {a[0], b[0]};
+    return ans;
+  }
+  else if (a.length > 0) {
+    int [] ans = {a[0]};
+    return ans;
+  }
+  else if (b.length > 0) {
+    int[] ans = {b[0]};
+    return ans;
+  }
+   int[] ans = {};
+    return ans;
+}
